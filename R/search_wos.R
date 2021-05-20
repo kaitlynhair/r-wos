@@ -31,7 +31,7 @@ search_wos <- function(query = "",
                            "</edition></editions>",
                            collapse = "\n")
 
-    if(ctimespan != ""){
+    if(timespan != ""){
 
     ## SOAP request
     body <- paste0('<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
@@ -140,6 +140,5 @@ search_wos <- function(query = "",
 
   wos_results <- df %>%
     mutate(database = "wos") %>%
-    rename(title = articletitle) %>%
     select(-article_no, -isi_id)
 }
