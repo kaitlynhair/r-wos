@@ -4,8 +4,11 @@
 \alias{wos_authenticate}
 \title{Authenticate to the Web of Science Web Services Lite API}
 \usage{
-wos_authenticate(username = NULL, password = NULL,
-  url = "http://search.webofknowledge.com")
+wos_authenticate(
+  username = NULL,
+  password = NULL,
+  url = "http://search.webofknowledge.com"
+)
 }
 \arguments{
 \item{username}{optional user name}
