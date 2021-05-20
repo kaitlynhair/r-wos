@@ -31,7 +31,8 @@ search_wos <- function(query = "",
                            "</edition></editions>",
                            collapse = "\n")
 
-    if(!timespan == ""){
+    if(ctimespan != ""){
+
     ## SOAP request
     body <- paste0('<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
                    xmlns:woksearchlite="http://woksearchlite.v3.wokmws.thomsonreuters.com">
@@ -53,6 +54,7 @@ search_wos <- function(query = "",
                    </soapenv:Body>
                    </soapenv:Envelope>')
     }
+
     else{
 
       body <- paste0('<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
@@ -134,6 +136,10 @@ search_wos <- function(query = "",
   cat(paste0(results, " records found"))
 
   result <- list(sid = sid, results = results, id = query_id)
-  return(wos_retrieve_all(result))
+  df<- wos_retrieve_all(result)
 
+  wos_results <- df %>%
+    mutate(database = "wos") %>%
+    rename(title = articletitle) %>%
+    select(-article_no, -isi_id)
 }
