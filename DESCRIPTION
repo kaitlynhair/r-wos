@@ -1,4 +1,4 @@
-Package: r-wos
+Package: rwos
 Type: Package
 Title: Interface to Web of Science Web Services API
 Version: 0.0.1
