@@ -145,4 +145,5 @@ search_wos <- function(query = "",
 
   wos_results$author <- gsub('[[:space:]]\\|[[:space:]]', '; ', wos_results$author)
 
+  return(wos_results)
 }
