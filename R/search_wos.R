@@ -13,6 +13,7 @@
 #' @export
 #' @import RCurl
 #' @import xml2
+#' @import dplyr
 
 
 search_wos <- function(query = "",
