@@ -142,4 +142,6 @@ search_wos <- function(query = "",
     mutate(database = "wos") %>%
     rename(author = authors) %>%
     select(-article_no, -isi_id)
+
+  wos_results$author <- gsub('|', ';', wos_results$author)
 }
