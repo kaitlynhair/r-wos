@@ -145,6 +145,7 @@ search_wos <- function(query = "",
     select(-article_no, -isi_id)
 
   wos_results$author <- gsub('[[:space:]]\\|[[:space:]]', '; ', wos_results$author)
+  wos_results$uid <- tolower(wos_results$uid)
 
   return(wos_results)
 }
