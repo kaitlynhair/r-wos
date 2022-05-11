@@ -141,8 +141,7 @@ search_wos <- function(query = "",
 
   wos_results <- df %>%
     mutate(source = "wos") %>%
-    rename(author = authors) %>%
-    select(-article_no, -isi_id)
+    rename(author = authors)
 
   wos_results$author <- gsub('[[:space:]]\\|[[:space:]]', '; ', wos_results$author)
   wos_results$uid <- tolower(wos_results$uid)
