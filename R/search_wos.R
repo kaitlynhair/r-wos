@@ -140,8 +140,8 @@ search_wos <- function(query = "",
   df<- wos_retrieve_all(result)
 
   wos_results <- df %>%
-    mutate(source = "wos") %>%
-    rename(author = authors)
+    dplyr:: mutate(source = "wos") %>%
+    dplyr::rename(author = authors)
 
   wos_results$author <- gsub('[[:space:]]\\|[[:space:]]', '; ', wos_results$author)
   wos_results$uid <- tolower(wos_results$uid)
